@@ -1,0 +1,10 @@
+package com.russel.user.mapper;
+
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.russel.model.user.pojos.ApUser;
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public interface ApUserMapper extends BaseMapper<ApUser> {
+}

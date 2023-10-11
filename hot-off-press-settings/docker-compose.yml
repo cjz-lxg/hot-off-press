@@ -1,0 +1,28 @@
+version: '3.1'
+
+services:
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root  # Set a root password
+      MYSQL_USER: cjz              # Create a user named 'cjz'
+      MYSQL_PASSWORD: cjz          # Set the user password to 'cjz'
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data:/var/lib/mysql      # Optional: Persist data
+      - ./initdb:/docker-entrypoint-initdb.d  # Execute SQL scripts on startup
+    command: --init-file /docker-entrypoint-initdb.d/hot_off_press_user.sql  # Execute a SQL file on startup
+  nacos:
+    image: nacos/nacos-server:1.2.0
+    container_name: nacos
+    restart: always
+    environment:
+      - MODE=standalone
+    ports:
+      - "8848:8848"
+    volumes:
+      - ./nacos-data:/home/nacos/data
+
+
