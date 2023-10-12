@@ -4,19 +4,12 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.russel</groupId>
-        <artifactId>hot-off-press</artifactId>
+        <groupId>com.russel.press</groupId>
+        <artifactId>hot-off-press-settings</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.russel.press</groupId>
-    <artifactId>hot-off-press-settings</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>hot-off-press-nginx</module>
-        <module>hot-off-press-mysql</module>
-        <module>hot-off-press-nacos</module>
-    </modules>
+    <artifactId>hot-off-press-mysql</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

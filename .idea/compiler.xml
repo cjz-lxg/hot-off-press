@@ -8,12 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="hot-off-press-test" />
-        <module name="hot-off-press-settings" />
         <module name="hot-off-press-app-gateway" />
+        <module name="hot-off-press-mysql" />
         <module name="hot-off-press-utils" />
+        <module name="hot-off-press-nginx" />
+        <module name="hot-off-press-article" />
         <module name="hot-off-press-model" />
         <module name="hot-off-press-feign-api" />
         <module name="hot-off-press-common" />
+        <module name="hot-off-press-nacos" />
         <module name="hot-off-press-user" />
       </profile>
     </annotationProcessing>
@@ -44,10 +47,14 @@
       <module name="heima-leadnews-utils" options="-parameters" />
       <module name="hot-off-press" options="-parameters" />
       <module name="hot-off-press-app-gateway" options="-parameters" />
+      <module name="hot-off-press-article" options="-parameters" />
       <module name="hot-off-press-common" options="-parameters" />
       <module name="hot-off-press-feign-api" options="-parameters" />
       <module name="hot-off-press-gateway" options="-parameters" />
       <module name="hot-off-press-model" options="-parameters" />
+      <module name="hot-off-press-mysql" options="-parameters" />
+      <module name="hot-off-press-nacos" options="-parameters" />
+      <module name="hot-off-press-nginx" options="-parameters" />
       <module name="hot-off-press-service" options="-parameters" />
       <module name="hot-off-press-settings" options="-parameters" />
       <module name="hot-off-press-test" options="-parameters" />
