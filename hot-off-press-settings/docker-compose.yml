@@ -24,3 +24,21 @@ services:
       - "8848:8848"
     volumes:
       - ./hot-off-press-nacos/nacos-data:/home/nacos/data
+
+
+  minio:
+    image: quay.io/minio/minio
+    container_name: minio
+    command: server /data --console-address ":9090"
+    environment:
+      - MINIO_ROOT_USER=minio
+      - MINIO_ROOT_PASSWORD=minio123
+      - MINIO_ACCESS_KEY=minio
+      - MINIO_SECRET_KEY=minio123
+    volumes:
+      - ./hot-off-press-minio/data:/data
+      - ./hot-off-press-minio/config:/root/.minio
+    ports:
+      - "9000:9000"
+      - "9090:9090"
+    restart: always

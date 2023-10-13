@@ -17,6 +17,7 @@
         <module>hot-off-press-gateway</module>
         <module>hot-off-press-test</module>
         <module>hot-off-press-settings</module>
+        <module>hot-off-press-file-starter</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->

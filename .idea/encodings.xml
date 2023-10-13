@@ -3,6 +3,7 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/hot-off-press-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-feign-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-file-starter/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-gateway/hot-off-press-app-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-gateway/src/main/resources" charset="UTF-8" />
@@ -13,12 +14,15 @@
     <file url="file://$PROJECT_DIR$/hot-off-press-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/docker-compose.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-minio/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-mysql/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-nacos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-nginx/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-test/hot-off-press-test-minio/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-test/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-test/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-utils/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />

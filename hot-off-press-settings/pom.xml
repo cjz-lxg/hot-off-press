@@ -16,6 +16,7 @@
         <module>hot-off-press-nginx</module>
         <module>hot-off-press-mysql</module>
         <module>hot-off-press-nacos</module>
+        <module>hot-off-press-minio</module>
     </modules>
 
     <properties>
