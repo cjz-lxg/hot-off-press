@@ -16,9 +16,11 @@
         <module name="hot-off-press-nacos" />
         <module name="hot-off-press-user" />
         <module name="hot-off-press-test-minio" />
+        <module name="hot-off-press-wemedia" />
         <module name="hot-off-press-file-starter" />
         <module name="hot-off-press-nginx" />
         <module name="hot-off-press-model" />
+        <module name="hot-off-press-wemedia-gateway" />
         <module name="hot-off-press-feign-api" />
         <module name="hot-off-press-common" />
       </profile>
@@ -69,6 +71,8 @@
       <module name="hot-off-press-test-press" options="-parameters" />
       <module name="hot-off-press-user" options="-parameters" />
       <module name="hot-off-press-utils" options="-parameters" />
+      <module name="hot-off-press-wemedia" options="-parameters" />
+      <module name="hot-off-press-wemedia-gateway" options="-parameters" />
     </option>
   </component>
 </project>

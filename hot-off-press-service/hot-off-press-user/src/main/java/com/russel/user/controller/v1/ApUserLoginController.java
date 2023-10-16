@@ -22,7 +22,10 @@ public class ApUserLoginController {
 
     @PostMapping("/login_auth")
     @ApiOperation("用户登录")
-    public ResponseResult login(@RequestBody LoginDto dto){
+    public ResponseResult login_auth(@RequestBody LoginDto dto){
         return apUserService.login(dto);
     }
+
+
+
 }

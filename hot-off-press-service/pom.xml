@@ -14,6 +14,7 @@
     <modules>
         <module>hot-off-press-user</module>
         <module>hot-off-press-article</module>
+        <module>hot-off-press-wemedia</module>
     </modules>
 
     <properties>

@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>hot-off-press-app-gateway</module>
+        <module>hot-off-press-wemedia-gateway</module>
     </modules>
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

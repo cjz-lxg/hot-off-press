@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-service.iml" filepath="$PROJECT_DIR$/hot-off-press-service/hot-off-press-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-user/hot-off-press-user.iml" filepath="$PROJECT_DIR$/hot-off-press-service/hot-off-press-user/hot-off-press-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-utils/hot-off-press-utils.iml" filepath="$PROJECT_DIR$/hot-off-press-utils/hot-off-press-utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-wemedia/hot-off-press-wemedia.iml" filepath="$PROJECT_DIR$/hot-off-press-service/hot-off-press-wemedia/hot-off-press-wemedia.iml" />
     </modules>
   </component>
 </project>
