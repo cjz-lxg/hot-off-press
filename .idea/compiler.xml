@@ -12,6 +12,7 @@
         <module name="hot-off-press-utils" />
         <module name="hot-off-press-article" />
         <module name="hot-off-press-minio" />
+        <module name="hot-off-press-test-article" />
         <module name="hot-off-press-nacos" />
         <module name="hot-off-press-user" />
         <module name="hot-off-press-test-minio" />
@@ -33,6 +34,7 @@
       <module name="heima-leadnews-test" target="1.8" />
       <module name="heima-leadnews-user" target="1.8" />
       <module name="heima-leadnews-utils" target="1.8" />
+      <module name="hot-off-press-test-press" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -62,7 +64,9 @@
       <module name="hot-off-press-service" options="-parameters" />
       <module name="hot-off-press-settings" options="-parameters" />
       <module name="hot-off-press-test" options="-parameters" />
+      <module name="hot-off-press-test-article" options="-parameters" />
       <module name="hot-off-press-test-minio" options="-parameters" />
+      <module name="hot-off-press-test-press" options="-parameters" />
       <module name="hot-off-press-user" options="-parameters" />
       <module name="hot-off-press-utils" options="-parameters" />
     </option>

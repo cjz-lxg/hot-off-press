@@ -9,6 +9,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/hot-off-press-nginx/pom.xml" />
+        <option value="$PROJECT_DIR$/hot-off-press-test/hot-off-press-test-press/pom.xml" />
       </set>
     </option>
   </component>

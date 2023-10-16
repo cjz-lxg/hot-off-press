@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>hot-off-press-test-minio</module>
+        <module>hot-off-press-test-article</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
 

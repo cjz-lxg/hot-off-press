@@ -1,0 +1,6 @@
+minio:
+  accessKey: SWx71tZ7YbSx7PMKWzvA
+  secretKey: DpsfRLSI3isMwlrqdkYo602Rf6RvQuCnW8jv7gHn
+  bucket: hot-off-press
+  endpoint: http://127.0.0.1:9000
+  readPath: http://127.0.0.1:9000
