@@ -1,4 +1,7 @@
-hot-off-press-settings/hot-off-press-minio
+hot-off-press-settings/hot-off-press-minio/data
+hot-off-press-settings/hot-off-press-minio/config
 hot-off-press-settings/hot-off-press-mysql/data
 hot-off-press-settings/hot-off-press-nginx
+hot-off-press-settings/nacos-data
+hot-off-press-settings/hot-off-press-nacos/nacos-data
 logs
