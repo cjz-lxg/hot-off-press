@@ -35812,3 +35812,34 @@ Unconditional classes:
 2023-10-16 19:00:58.313 [http-nio-51803-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 6 ms
 2023-10-16 19:00:58.418 [http-nio-51803-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
 2023-10-16 19:00:58.928 [http-nio-51803-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-16 23:44:34.432 [com.alibaba.nacos.client.Worker.longPolling.fixed-127.0.0.1_8848] ERROR c.a.n.c.config.http.ServerHttpAgent - [NACOS SocketTimeoutException httpPost] currentServerAddr: http://127.0.0.1:8848， err : Read timed out
+2023-10-16 23:44:34.436 [com.alibaba.nacos.client.Worker.longPolling.fixed-127.0.0.1_8848] ERROR c.a.n.c.config.http.ServerHttpAgent - no available server, currentServerAddr : http://127.0.0.1:8848
+2023-10-16 23:44:34.623 [com.alibaba.nacos.client.Worker.longPolling.fixed-127.0.0.1_8848] ERROR c.a.n.c.config.impl.ClientWorker - [fixed-127.0.0.1_8848] [check-update] get changed dataId exception
+java.net.ConnectException: no available server, currentServerAddr : http://127.0.0.1:8848
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpPost(ServerHttpAgent.java:190)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpPost(MetricsHttpAgent.java:68)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.checkUpdateConfigStr(ClientWorker.java:441)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.checkUpdateDataIds(ClientWorker.java:408)
+	at com.alibaba.nacos.client.config.impl.ClientWorker$LongPollingRunnable.run(ClientWorker.java:596)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2023-10-16 23:44:34.624 [com.alibaba.nacos.client.Worker.longPolling.fixed-127.0.0.1_8848] ERROR c.a.n.c.config.impl.ClientWorker - longPolling error : 
+java.net.ConnectException: no available server, currentServerAddr : http://127.0.0.1:8848
+	at com.alibaba.nacos.client.config.http.ServerHttpAgent.httpPost(ServerHttpAgent.java:190)
+	at com.alibaba.nacos.client.config.http.MetricsHttpAgent.httpPost(MetricsHttpAgent.java:68)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.checkUpdateConfigStr(ClientWorker.java:441)
+	at com.alibaba.nacos.client.config.impl.ClientWorker.checkUpdateDataIds(ClientWorker.java:408)
+	at com.alibaba.nacos.client.config.impl.ClientWorker$LongPollingRunnable.run(ClientWorker.java:596)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$201(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:293)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+2023-10-16 23:44:41.349 [HikariPool-1 housekeeper] WARN  com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=44m41s104ms76µs).

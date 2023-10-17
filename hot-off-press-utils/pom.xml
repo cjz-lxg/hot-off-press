@@ -16,7 +16,6 @@
         <dependency>
             <groupId>com.russel</groupId>
             <artifactId>hot-off-press-model</artifactId>
-            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>
