@@ -15,4 +15,6 @@ public interface WmMaterialService extends IService<WmMaterial> {
     public ResponseResult saveMaterial(MultipartFile multipartFile);
 
     ResponseResult findList(WmMaterialDto wmMaterialDto);
+
+
 }

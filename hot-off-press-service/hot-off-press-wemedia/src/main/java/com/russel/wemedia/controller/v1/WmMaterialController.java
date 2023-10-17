@@ -34,4 +34,5 @@ public class WmMaterialController {
     public ResponseResult findList(@RequestBody WmMaterialDto wmMaterialDto) {
         return wmMaterialService.findList(wmMaterialDto);
     }
+
 }
