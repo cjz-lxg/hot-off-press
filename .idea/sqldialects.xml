@@ -2,7 +2,9 @@
 <project version="4">
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-article/src/main/resources/mapper/ApArticleMapper.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-wemedia/src/main/resources/mapper/WmNewsMaterialMapper.xml" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-mysql/initdb/leadnews_article.sql" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-mysql/initdb/leadnews_wemedia.sql" dialect="MySQL" />
+    <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

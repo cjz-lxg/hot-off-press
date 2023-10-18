@@ -28,14 +28,15 @@ public enum AppHttpCodeEnum {
     DATA_NOT_EXIST(1002,"数据不存在"),
     // 数据错误 3000~3500
     NO_OPERATOR_AUTH(3000,"无权限操作"),
-    NEED_ADMIN(3001,"需要管理员权限");
+    NEED_ADMIN(3001,"需要管理员权限"),
+    MATERIAL_REFERENCE_FAIL(501,"素材引用失效");
 
     final int code;
-    final String message;
+    final String errorMessage;
 
-    AppHttpCodeEnum(int code, String message){
+    AppHttpCodeEnum(int code, String errorMessage){
         this.code = code;
-        this.message = message;
+        this.errorMessage = errorMessage;
     }
 
 }

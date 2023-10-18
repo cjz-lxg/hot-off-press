@@ -1,6 +1,7 @@
 package com.russel.wemedia.controller.v1;
 
 import com.russel.model.common.dtos.ResponseResult;
+import com.russel.model.wemedia.dtos.WmNewsDto;
 import com.russel.model.wemedia.pojos.WmNewsPageReqDto;
 import com.russel.wemedia.service.WmNewsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,4 +26,8 @@ public class WmNewsController {
         return wmNewsService.findAll(dto);
     }
 
+    @PostMapping("/submit")
+    public ResponseResult submitNews(@RequestBody WmNewsDto dto) {
+        return wmNewsService.submitNews(dto);
+    }
 }
