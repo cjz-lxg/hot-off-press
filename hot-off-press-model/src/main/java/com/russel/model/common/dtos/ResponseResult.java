@@ -50,7 +50,7 @@ public class ResponseResult<T> implements Serializable {
     }
 
     public static ResponseResult<?> okResult(int code, String msg) {
-        ResponseResult<String> result = new ResponseResult<String>();
+        ResponseResult<?> result = new ResponseResult<>();
         return result.ok(code, null, msg);
     }
 
