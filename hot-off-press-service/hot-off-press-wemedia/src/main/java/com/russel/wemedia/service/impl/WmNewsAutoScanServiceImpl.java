@@ -4,6 +4,8 @@ import com.alibaba.fastjson.JSONArray;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.russel.apis.article.IArticleClient;
+import com.russel.common.tess4j.Tess4jClient;
+import com.russel.file.service.FileStorageService;
 import com.russel.model.article.dtos.ArticleDto;
 import com.russel.model.common.dtos.ResponseResult;
 import com.russel.model.wemedia.dtos.WmNews;
@@ -16,12 +18,16 @@ import com.russel.wemedia.mapper.WmNewsMapper;
 import com.russel.wemedia.mapper.WmSensitiveMapper;
 import com.russel.wemedia.mapper.WmUserMapper;
 import com.russel.wemedia.service.WmNewsAutoScanService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -30,6 +36,7 @@ import java.util.stream.Collectors;
  * @DATE 2023/10/22.
  */
 @Service
+@Slf4j
 public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
 
     @Autowired
@@ -52,6 +59,10 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
             boolean isSensitive = handleSensitiveScan((String) textAndImages.get("content"), wmNews);
             if(!isSensitive) return;
 
+            //TODO 后面优化下图片自定义审核
+            boolean isImageScan = handleImageScan((List<String>) textAndImages.get("images"), wmNews);
+            if (!isImageScan) return;
+
             ResponseResult responseResult = saveAppArticle(wmNews);
             if(!responseResult.getCode().equals(200)){
                 throw new RuntimeException("WmNewsAutoScanServiceImpl-文章审核，保存app端相关文章数据失败");
@@ -60,6 +71,55 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
             wmNews.setArticleId((Long) responseResult.getData());
             updateWmNews(wmNews,(short) 9,"审核成功");
         }
+    }
+
+    @Autowired
+    private FileStorageService fileStorageService;
+    @Autowired
+    private Tess4jClient tess4jClient;
+
+    private boolean handleImageScan(List<String> images, WmNews wmNews) {
+        boolean flag = true;
+
+        if (images == null || images.isEmpty()) {
+            return flag;
+        }
+
+        //下载图片 minIO
+        //图片去重
+        images = images.stream().distinct().collect(Collectors.toList());
+
+        List<byte[]> imageList = new ArrayList<>();
+
+        try {
+            for (String image : images) {
+                byte[] bytes = fileStorageService.downLoadFile(image);
+
+                //图片识别文字审核---begin-----
+
+                //从byte[]转换为butteredImage
+                ByteArrayInputStream in = new ByteArrayInputStream(bytes);
+                BufferedImage imageFile = ImageIO.read(in);
+                //识别图片的文字
+                String result = tess4jClient.doOCR(imageFile);
+                log.info(result);
+                //审核是否包含自管理的敏感词
+                boolean isSensitive = handleSensitiveScan(result, wmNews);
+                if (!isSensitive) {
+                    return false;
+                }
+
+                //图片识别文字审核---end-----
+
+
+                imageList.add(bytes);
+
+            }
+        } catch (Exception e) {
+            flag = false;
+            e.printStackTrace();
+        }
+        return flag;
     }
 
     /**
