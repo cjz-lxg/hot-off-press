@@ -28,7 +28,7 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     private WmNewsMapper wmNewsMapper;
 
     @Override
-    //@Async
+    @Async
     public void autoScanWmNews(Integer id) {
         //TODO 后期引入阿里云的内容审核
         WmNews wmNews = wmNewsMapper.selectById(id);
