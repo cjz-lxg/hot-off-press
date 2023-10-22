@@ -20,6 +20,7 @@ import com.russel.utils.thread.WmThreadLocalUtil;
 import com.russel.wemedia.mapper.WmMaterialMapper;
 import com.russel.wemedia.mapper.WmNewsMapper;
 import com.russel.wemedia.mapper.WmNewsMaterialMapper;
+import com.russel.wemedia.service.WmNewsAutoScanService;
 import com.russel.wemedia.service.WmNewsService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.ThreadUtils;
@@ -83,6 +84,8 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         responseResult.setData(page.getRecords());
         return responseResult;
     }
+    @Autowired
+    private WmNewsAutoScanService wmNewsAutoScanService;
 
     @Override
     @Transactional
@@ -113,6 +116,8 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
 
         //5.save relation between the cover photo and material , if auto , should match the cover photo
         saveRelativeInfoForCover(dto, wmNews, material);
+
+        wmNewsAutoScanService.autoScanWmNews(wmNews.getId());
 
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }

@@ -12,6 +12,7 @@ import com.russel.wemedia.mapper.WmUserMapper;
 import com.russel.wemedia.service.WmNewsAutoScanService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -27,6 +28,7 @@ public class WmNewsAutoScanServiceImpl implements WmNewsAutoScanService {
     private WmNewsMapper wmNewsMapper;
 
     @Override
+    //@Async
     public void autoScanWmNews(Integer id) {
         //TODO 后期引入阿里云的内容审核
         WmNews wmNews = wmNewsMapper.selectById(id);
