@@ -7,6 +7,7 @@ import com.russel.article.mapper.ApArticleConfigMapper;
 import com.russel.article.mapper.ApArticleContentMapper;
 import com.russel.article.mapper.ApArticleMapper;
 import com.russel.article.service.ApArticleService;
+import com.russel.article.service.ArticleFreemarkerService;
 import com.russel.common.constants.ArticleConstants;
 import com.russel.model.article.dtos.ArticleDto;
 import com.russel.model.article.dtos.ArticleHomeDto;
@@ -75,9 +76,10 @@ public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle
 
     @Autowired
     private ApArticleConfigMapper apArticleConfigMapper;
-
     @Autowired
     private ApArticleContentMapper apArticleContentMapper;
+    @Autowired
+    private ArticleFreemarkerService articleFreemarkerService;
 
     /**
      * 保存app端相关文章
@@ -122,7 +124,7 @@ public class ApArticleServiceImpl extends ServiceImpl<ApArticleMapper, ApArticle
             apArticleContent.setContent(dto.getContent());
             apArticleContentMapper.updateById(apArticleContent);
         }
-
+        articleFreemarkerService.buildArticleToMinIO(apArticle,dto.getContent());
         //3.结果返回  文章的id
         return ResponseResult.okResult(apArticle.getId());
     }

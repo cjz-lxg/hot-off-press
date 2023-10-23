@@ -1,4 +1,5 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.russel.common.exception.ExceptionCatch,\
   com.russel.common.swagger.SwaggerConfiguration,\
-  com.russel.common.swagger.Swagger2Configuration
+  com.russel.common.swagger.Swagger2Configuration,\
+  com.russel.common.tess4j.Tess4jClient
