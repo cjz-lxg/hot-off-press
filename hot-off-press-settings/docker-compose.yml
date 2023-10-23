@@ -42,3 +42,11 @@ services:
       - "9000:9000"
       - "9090:9090"
     restart: always
+
+  redis:
+    image: redis
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    command: [ "--requirepass", "hot-off-press" ]

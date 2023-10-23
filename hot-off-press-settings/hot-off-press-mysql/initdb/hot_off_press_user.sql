@@ -1,20 +1,7 @@
 CREATE DATABASE IF NOT EXISTS hot_off_press_user DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE hot_off_press_user;
 SET NAMES utf8;
-/*
-Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50721
-Source Host           : localhost:3306
-Source Database       : leadnews_user
-
-Target Server Type    : MYSQL
-Target Server Version : 50721
-File Encoding         : 65001
-
-Date: 2021-04-12 13:58:42
-*/
 
 SET FOREIGN_KEY_CHECKS=0;
 

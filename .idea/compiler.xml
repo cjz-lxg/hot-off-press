@@ -17,6 +17,7 @@
         <module name="hot-off-press-user" />
         <module name="hot-off-press-test-minio" />
         <module name="hot-off-press-wemedia" />
+        <module name="hot-off-press-schedule" />
         <module name="hot-off-press-file-starter" />
         <module name="hot-off-press-nginx" />
         <module name="hot-off-press-model" />
@@ -63,6 +64,7 @@
       <module name="hot-off-press-mysql" options="-parameters" />
       <module name="hot-off-press-nacos" options="-parameters" />
       <module name="hot-off-press-nginx" options="-parameters" />
+      <module name="hot-off-press-schedule" options="-parameters" />
       <module name="hot-off-press-service" options="-parameters" />
       <module name="hot-off-press-settings" options="-parameters" />
       <module name="hot-off-press-test" options="-parameters" />
