@@ -1,4 +1,4 @@
-package com.heima.schedule;
+package com.russel.schedule;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;

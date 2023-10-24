@@ -1,10 +1,9 @@
-package com.heima.schedule.mapper;
+package com.russel.schedule.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.russel.model.schedule.pojos.Taskinfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 
 import java.util.Date;
 import java.util.List;

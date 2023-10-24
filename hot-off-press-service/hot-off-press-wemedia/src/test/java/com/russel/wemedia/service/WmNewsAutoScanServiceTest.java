@@ -1,7 +1,6 @@
-package com.heima.wemedia.service;
+package com.russel.wemedia.service;
 
 import com.russel.wemedia.WemediaApplication;
-import com.russel.wemedia.service.WmNewsAutoScanService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

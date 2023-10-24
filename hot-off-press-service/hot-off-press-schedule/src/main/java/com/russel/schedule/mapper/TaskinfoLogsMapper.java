@@ -1,4 +1,4 @@
-package com.heima.schedule.mapper;
+package com.russel.schedule.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.russel.model.schedule.pojos.TaskinfoLogs;

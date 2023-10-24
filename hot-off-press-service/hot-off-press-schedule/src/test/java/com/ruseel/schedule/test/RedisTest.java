@@ -1,6 +1,6 @@
 package com.ruseel.schedule.test;
 
-import com.heima.schedule.ScheduleApplication;
+import com.russel.schedule.ScheduleApplication;
 import com.russel.common.redis.CacheService;
 import org.junit.Test;
 import org.junit.runner.RunWith;

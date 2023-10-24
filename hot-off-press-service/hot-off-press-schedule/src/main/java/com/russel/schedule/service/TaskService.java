@@ -1,4 +1,4 @@
-package com.heima.schedule.service;
+package com.russel.schedule.service;
 
 import com.russel.model.schedule.dtos.Task;
 
