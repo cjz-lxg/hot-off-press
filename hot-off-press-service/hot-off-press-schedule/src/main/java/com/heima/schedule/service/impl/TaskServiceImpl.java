@@ -12,13 +12,16 @@ import com.russel.model.schedule.dtos.Task;
 import com.russel.model.schedule.pojos.Taskinfo;
 import com.russel.model.schedule.pojos.TaskinfoLogs;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @author Russel
@@ -57,6 +60,37 @@ public class TaskServiceImpl implements TaskService {
         if (task != null) {
             flag = true;
             removeTaskFromCache(task);
+        }
+    }
+
+    @Override
+    public Task poll(int type, int priority) {
+        Task task = null;
+        try {
+            String key = type + "_" + priority;
+            String task_json = cacheService.lRightPop(ScheduleConstants.TOPIC + key);
+            if (StringUtils.isNoneBlank(task_json)) {
+                task = JSON.parseObject(task_json, Task.class);
+                updateDb(task.getTaskId(), ScheduleConstants.EXECUTED);
+            }
+        } catch (Exception e) {
+            log.error("拉取任务失败，type:{},priority:{}", type, priority, e);
+        }
+        return task;
+    }
+
+    @Scheduled(cron = "0*/1 * * * * ?")
+    public void refresh() {
+        log.info(new Date(System.currentTimeMillis()) + "执行了定时任务");
+        //1.获取当前时间的后5分钟的时间
+        Set<String> futureKeys = cacheService.scan(ScheduleConstants.FUTURE + "*");
+        for (String futureKey : futureKeys) {
+            String topicKey = ScheduleConstants.TOPIC + futureKey.split(ScheduleConstants.FUTURE)[1];
+            Set<String> tasks = cacheService.zRangeByScore(futureKey, 0, System.currentTimeMillis());
+            if (!tasks.isEmpty()) {
+                cacheService.refreshWithPipeline(futureKey, topicKey, tasks);
+                log.info("成功的将" + futureKey + "中的任务刷新到" + topicKey + "中");
+            }
         }
     }
 
@@ -133,7 +167,6 @@ public class TaskServiceImpl implements TaskService {
             BeanUtils.copyProperties(task, taskinfo);
             taskinfo.setExecuteTime(new Date(task.getExecuteTime()));
             taskinfoMapper.insert(taskinfo);
-            int i = 1 / 0;
             //设置taskID
             task.setTaskId(taskinfo.getTaskId());
 
@@ -146,8 +179,7 @@ public class TaskServiceImpl implements TaskService {
 
             flag = true;
         } catch (Exception e) {
-            log.error("添加任务失败，taskId:{}", task.getTaskId());
-            throw new CustomException(AppHttpCodeEnum.SERVER_ERROR);
+            log.error("添加任务失败，taskId:{}", task.getTaskId(), e);
         }
         return flag;
     }
