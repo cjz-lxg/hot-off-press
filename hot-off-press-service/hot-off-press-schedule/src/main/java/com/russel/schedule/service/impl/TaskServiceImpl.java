@@ -1,6 +1,7 @@
 package com.russel.schedule.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.russel.schedule.mapper.TaskinfoLogsMapper;
 import com.russel.schedule.mapper.TaskinfoMapper;
 import com.russel.schedule.service.TaskService;
@@ -17,8 +18,10 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.PostConstruct;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -52,13 +55,14 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public void cancelTask(long taskId) {
+    public boolean cancelTask(long taskId) {
         boolean flag = false;
         Task task = updateDb(taskId, ScheduleConstants.CANCELLED);
         if (task != null) {
             flag = true;
             removeTaskFromCache(task);
         }
+        return flag;
     }
 
     @Override
@@ -79,6 +83,10 @@ public class TaskServiceImpl implements TaskService {
 
     @Scheduled(cron = "0*/1 * * * * ?")
     public void refresh() {
+        String token = cacheService.tryLock("FUTURE_TASK_SYNC", 1000 * 30);
+        if (StringUtils.isBlank(token)) {
+            return;
+        }
         log.info(new Date(System.currentTimeMillis()) + "执行了定时任务");
         //1.获取当前时间的后5分钟的时间
         Set<String> futureKeys = cacheService.scan(ScheduleConstants.FUTURE + "*");
@@ -90,6 +98,34 @@ public class TaskServiceImpl implements TaskService {
                 log.info("成功的将" + futureKey + "中的任务刷新到" + topicKey + "中");
             }
         }
+    }
+
+    @Scheduled(cron = "0 */5 * * * ?")
+    @PostConstruct
+    public void reloadData() {
+        clearCache();
+        log.info("数据库数据同步到缓存");
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.MINUTE, 5);
+
+        //查看小于未来5分钟的所有任务
+        List<Taskinfo> allTasks = taskinfoMapper.selectList(Wrappers.<Taskinfo>lambdaQuery().lt(Taskinfo::getExecuteTime,calendar.getTime()));
+        if(allTasks != null && !allTasks.isEmpty()){
+            for (Taskinfo taskinfo : allTasks) {
+                Task task = new Task();
+                BeanUtils.copyProperties(taskinfo,task);
+                task.setExecuteTime(taskinfo.getExecuteTime().getTime());
+                addTaskToCache(task);
+            }
+        }
+    }
+
+    private void clearCache(){
+        // 删除缓存中未来数据集合和当前消费者队列的所有key
+        Set<String> futurekeys = cacheService.scan(ScheduleConstants.FUTURE + "*");// future_
+        Set<String> topickeys = cacheService.scan(ScheduleConstants.TOPIC + "*");// topic_
+        cacheService.delete(futurekeys);
+        cacheService.delete(topickeys);
     }
 
     private void removeTaskFromCache(Task task) {

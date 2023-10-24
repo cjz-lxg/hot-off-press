@@ -9,7 +9,7 @@ import com.russel.model.schedule.dtos.Task;
 public interface TaskService {
     public long addTask(Task task);
 
-    public void cancelTask(long taskId);
+    public boolean cancelTask(long taskId);
 
     /**
      * 按照类型和优先级来拉取任务

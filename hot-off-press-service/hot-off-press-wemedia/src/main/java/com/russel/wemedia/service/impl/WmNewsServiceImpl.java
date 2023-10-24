@@ -22,6 +22,7 @@ import com.russel.wemedia.mapper.WmNewsMapper;
 import com.russel.wemedia.mapper.WmNewsMaterialMapper;
 import com.russel.wemedia.service.WmNewsAutoScanService;
 import com.russel.wemedia.service.WmNewsService;
+import com.russel.wemedia.service.WmNewsTaskService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.ThreadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,6 +87,8 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
     }
     @Autowired
     private WmNewsAutoScanService wmNewsAutoScanService;
+    @Autowired
+    private WmNewsTaskService wmNewsTaskService;
 
     @Override
     @Transactional
@@ -117,8 +120,9 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         //5.save relation between the cover photo and material , if auto , should match the cover photo
         saveRelativeInfoForCover(dto, wmNews, material);
 
-        wmNewsAutoScanService.autoScanWmNews(wmNews.getId());
-
+        //6.审核文章
+//        wmNewsAutoScanService.autoScanWmNews(wmNews.getId());
+        wmNewsTaskService.addNewsToTask(wmNews.getId(),wmNews.getPublishTime());
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 

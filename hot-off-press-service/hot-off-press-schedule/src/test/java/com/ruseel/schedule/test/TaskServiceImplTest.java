@@ -30,7 +30,7 @@ public class TaskServiceImplTest {
         task.setTaskType(ScheduleConstants.SCHEDULED);
         task.setPriority(1);
         task.setParameters("test".getBytes());
-        task.setExecuteTime(Calendar.getInstance().getTimeInMillis()+50000);
+        task.setExecuteTime(Calendar.getInstance().getTimeInMillis()+1000*60*6);
         taskService.addTask(task);
     }
 

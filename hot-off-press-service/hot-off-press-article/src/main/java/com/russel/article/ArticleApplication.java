@@ -15,7 +15,6 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableDiscoveryClient
 @MapperScan("com.russel.article.mapper")
 @EnableAsync
-
 public class ArticleApplication {
 
     public static void main(String[] args) {
