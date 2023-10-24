@@ -31,9 +31,14 @@ public class TaskServiceImplTest {
         task.setTaskType(ScheduleConstants.SCHEDULED);
         task.setPriority(1);
         task.setParameters("test".getBytes());
-        task.setExecuteTime(Calendar.getInstance().getTimeInMillis());
-        //task.setTaskId(123L);
+        task.setExecuteTime(Calendar.getInstance().getTimeInMillis()+500);
+        task.setTaskId(123L);
         taskService.addTask(task);
+    }
+
+    @Test
+    public void cancelTask() {
+        taskService.cancelTask(123L);
     }
 
 }

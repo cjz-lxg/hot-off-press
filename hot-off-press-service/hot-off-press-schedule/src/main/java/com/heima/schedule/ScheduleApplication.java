@@ -6,10 +6,12 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @SpringBootApplication
-@MapperScan("com.heima.schedule.mapper")
+@MapperScan("com.russel.schedule.mapper")
+@EnableTransactionManagement
 public class ScheduleApplication {
 
     public static void main(String[] args) {
