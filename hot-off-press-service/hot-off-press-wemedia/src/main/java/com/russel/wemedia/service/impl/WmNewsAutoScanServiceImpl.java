@@ -8,7 +8,7 @@ import com.russel.common.tess4j.Tess4jClient;
 import com.russel.file.service.FileStorageService;
 import com.russel.model.article.dtos.ArticleDto;
 import com.russel.model.common.dtos.ResponseResult;
-import com.russel.model.wemedia.dtos.WmNews;
+import com.russel.model.wemedia.pojos.WmNews;
 import com.russel.model.wemedia.pojos.WmChannel;
 import com.russel.model.wemedia.pojos.WmSensitive;
 import com.russel.model.wemedia.pojos.WmUser;

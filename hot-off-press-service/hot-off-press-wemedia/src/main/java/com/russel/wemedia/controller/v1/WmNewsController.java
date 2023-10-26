@@ -21,6 +21,11 @@ public class WmNewsController {
     @Autowired
     private WmNewsService wmNewsService;
 
+    @PostMapping("/down_or_up")
+    public ResponseResult downOrUp(@RequestBody WmNewsDto dto) {
+        return wmNewsService.downOrUP(dto);
+    }
+
     @PostMapping("/list")
     public ResponseResult findAll(@RequestBody WmNewsPageReqDto dto) {
         return wmNewsService.findAll(dto);

@@ -1,7 +1,7 @@
 package com.russel.utils.common;
 
 
-import com.russel.model.wemedia.dtos.WmNews;
+import com.russel.model.wemedia.pojos.WmNews;
 import io.protostuff.LinkedBuffer;
 import io.protostuff.ProtostuffIOUtil;
 import io.protostuff.Schema;

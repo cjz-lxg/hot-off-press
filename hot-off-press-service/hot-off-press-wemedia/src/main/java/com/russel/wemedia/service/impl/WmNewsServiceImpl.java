@@ -6,11 +6,12 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.russel.common.constants.WemediaConstants;
+import com.russel.common.constants.WmNewsMessageConstants;
 import com.russel.common.exception.CustomException;
 import com.russel.model.common.dtos.PageResponseResult;
 import com.russel.model.common.dtos.ResponseResult;
 import com.russel.model.common.enums.AppHttpCodeEnum;
-import com.russel.model.wemedia.dtos.WmNews;
+import com.russel.model.wemedia.pojos.WmNews;
 import com.russel.model.wemedia.dtos.WmNewsDto;
 import com.russel.model.wemedia.pojos.WmMaterial;
 import com.russel.model.wemedia.pojos.WmNewsMaterial;
@@ -24,15 +25,12 @@ import com.russel.wemedia.service.WmNewsAutoScanService;
 import com.russel.wemedia.service.WmNewsService;
 import com.russel.wemedia.service.WmNewsTaskService;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.ThreadUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -40,6 +38,7 @@ import java.util.stream.Collectors;
  * @DATE 2023/10/18.
  */
 @Service
+@Transactional
 public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> implements WmNewsService {
     @Override
     public ResponseResult findAll(WmNewsPageReqDto dto) {
@@ -89,9 +88,37 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
     private WmNewsAutoScanService wmNewsAutoScanService;
     @Autowired
     private WmNewsTaskService wmNewsTaskService;
+    @Autowired
+    private KafkaTemplate<String,String> kafkaTemplate;
 
     @Override
-    @Transactional
+    public ResponseResult downOrUP(WmNewsDto dto) {
+        if (dto.getId() == null) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+
+        WmNews wmNews = getById(dto.getId());
+        if (wmNews == null) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.DATA_NOT_EXIST, "文章不存在");
+        }
+
+        if (!wmNews.getStatus().equals(WmNews.Status.PUBLISHED.getCode())) {
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID, "当前文章不是发布状态,不能上下架");
+        }
+        if (dto.getEnable() != null && dto.getEnable() > -1 && dto.getEnable() < 2) {
+            update(Wrappers.<WmNews>lambdaUpdate().set(WmNews::getEnable, dto.getEnable()).eq(WmNews::getId, wmNews.getId()));
+        }
+        //发送消息，通知article端修改文章配置
+        if(wmNews.getArticleId() != null){
+            Map<String,Object> map = new HashMap<>();
+            map.put("articleId",wmNews.getArticleId());
+            map.put("enable",dto.getEnable());
+            kafkaTemplate.send(WmNewsMessageConstants.WM_NEWS_UP_OR_DOWN_TOPIC,JSON.toJSONString(map));
+        }
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    @Override
     public ResponseResult submitNews(WmNewsDto dto) {
         //1. check the condition
         if (dto == null || dto.getContent() == null) {

@@ -1,7 +1,7 @@
 package com.russel.wemedia.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.russel.model.wemedia.dtos.WmNews;
+import com.russel.model.wemedia.pojos.WmNews;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
