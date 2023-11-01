@@ -16,6 +16,7 @@
         <module>hot-off-press-article</module>
         <module>hot-off-press-wemedia</module>
         <module>hot-off-press-schedule</module>
+        <module>hot-off-press-search</module>
     </modules>
 
     <properties>

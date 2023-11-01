@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/hot-off-press-test/es-init/es-init.iml" filepath="$PROJECT_DIR$/hot-off-press-test/es-init/es-init.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-gateway/hot-off-press-app-gateway/hot-off-press-app-gateway.iml" filepath="$PROJECT_DIR$/hot-off-press-gateway/hot-off-press-app-gateway/hot-off-press-app-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-common/hot-off-press-common.iml" filepath="$PROJECT_DIR$/hot-off-press-common/hot-off-press-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-feign-api/hot-off-press-feign-api.iml" filepath="$PROJECT_DIR$/hot-off-press-feign-api/hot-off-press-feign-api.iml" />

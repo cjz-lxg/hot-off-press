@@ -13,17 +13,20 @@
     <file url="file://$PROJECT_DIR$/hot-off-press-schedule/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-article/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-schedule/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-search/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-user/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-wemedia/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-service/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/docker-compose.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-elasticsearch/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-minio/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-mysql/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-nacos/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/hot-off-press-nginx/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-settings/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/hot-off-press-test/es-init/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-test/hot-off-press-test-article/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-test/hot-off-press-test-minio/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/hot-off-press-test/hot-off-press-test-press/src/main/java" charset="UTF-8" />

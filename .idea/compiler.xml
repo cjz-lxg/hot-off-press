@@ -17,11 +17,14 @@
         <module name="hot-off-press-user" />
         <module name="hot-off-press-test-minio" />
         <module name="hot-off-press-wemedia" />
+        <module name="hot-off-press-elasticsearch" />
+        <module name="es-init" />
         <module name="hot-off-press-schedule" />
         <module name="hot-off-press-file-starter" />
         <module name="hot-off-press-nginx" />
         <module name="hot-off-press-model" />
         <module name="hot-off-press-wemedia-gateway" />
+        <module name="hot-off-press-search" />
         <module name="hot-off-press-feign-api" />
         <module name="hot-off-press-common" />
       </profile>
@@ -42,6 +45,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="es-init" options="-parameters" />
       <module name="heima-leadnews-apis" options="-parameters" />
       <module name="heima-leadnews-app-gateway" options="-parameters" />
       <module name="heima-leadnews-common" options="-parameters" />
@@ -56,6 +60,7 @@
       <module name="hot-off-press-app-gateway" options="-parameters" />
       <module name="hot-off-press-article" options="-parameters" />
       <module name="hot-off-press-common" options="-parameters" />
+      <module name="hot-off-press-elasticsearch" options="-parameters" />
       <module name="hot-off-press-feign-api" options="-parameters" />
       <module name="hot-off-press-file-starter" options="-parameters" />
       <module name="hot-off-press-gateway" options="-parameters" />
@@ -65,6 +70,7 @@
       <module name="hot-off-press-nacos" options="-parameters" />
       <module name="hot-off-press-nginx" options="-parameters" />
       <module name="hot-off-press-schedule" options="-parameters" />
+      <module name="hot-off-press-search" options="-parameters" />
       <module name="hot-off-press-service" options="-parameters" />
       <module name="hot-off-press-settings" options="-parameters" />
       <module name="hot-off-press-test" options="-parameters" />

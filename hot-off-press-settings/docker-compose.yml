@@ -57,6 +57,18 @@ services:
     ports:
       - "2181:2181"
 
+  elasticsearch:
+    image: elasticsearch:7.4.0
+    container_name: elasticsearch
+    restart: always
+    environment:
+      - discovery.type=single-node
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ./hot-off-press-elasticsearch/plugins:/usr/share/elasticsearch/plugins
+
 #  kafka:
 #    image: wurstmeister/kafka:2.12-2.3.1
 #    container_name: kafka

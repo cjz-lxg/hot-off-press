@@ -17,6 +17,7 @@
         <module>hot-off-press-mysql</module>
         <module>hot-off-press-nacos</module>
         <module>hot-off-press-minio</module>
+        <module>hot-off-press-elasticsearch</module>
     </modules>
 
     <properties>
