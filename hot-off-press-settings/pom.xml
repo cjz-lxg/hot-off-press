@@ -18,6 +18,7 @@
         <module>hot-off-press-nacos</module>
         <module>hot-off-press-minio</module>
         <module>hot-off-press-elasticsearch</module>
+        <module>hot-off-pres-mongoDB</module>
     </modules>
 
     <properties>

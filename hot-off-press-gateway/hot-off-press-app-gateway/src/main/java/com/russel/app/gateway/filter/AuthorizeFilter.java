@@ -32,7 +32,7 @@ public class AuthorizeFilter implements Ordered, GlobalFilter {
 
 
         //3.获取token
-        String token = request.getHeaders().getFirst("token");
+        String token = request.getHeaders().getFirst("Token");
 
         //4.判断token是否存在
         if(StringUtils.isBlank(token)){
@@ -49,6 +49,11 @@ public class AuthorizeFilter implements Ordered, GlobalFilter {
                 response.setStatusCode(HttpStatus.UNAUTHORIZED);
                 return response.setComplete();
             }
+            Object userId = claimsBody.get("id");
+            ServerHttpRequest serverHttpRequest = request.mutate().headers(httpHeaders -> {
+                httpHeaders.add("userId", userId.toString());
+            }).build();
+            exchange = exchange.mutate().request(serverHttpRequest).build();
         }catch (Exception e){
             e.printStackTrace();
             response.setStatusCode(HttpStatus.UNAUTHORIZED);

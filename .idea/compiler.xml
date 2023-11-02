@@ -12,6 +12,7 @@
         <module name="hot-off-press-utils" />
         <module name="hot-off-press-article" />
         <module name="hot-off-press-minio" />
+        <module name="hot-off-pres-mongoDB" />
         <module name="hot-off-press-test-article" />
         <module name="hot-off-press-nacos" />
         <module name="hot-off-press-user" />
@@ -26,6 +27,7 @@
         <module name="hot-off-press-wemedia-gateway" />
         <module name="hot-off-press-search" />
         <module name="hot-off-press-feign-api" />
+        <module name="mongo-demo" />
         <module name="hot-off-press-common" />
       </profile>
     </annotationProcessing>
@@ -56,6 +58,7 @@
       <module name="heima-leadnews-test" options="-parameters" />
       <module name="heima-leadnews-user" options="-parameters" />
       <module name="heima-leadnews-utils" options="-parameters" />
+      <module name="hot-off-pres-mongoDB" options="-parameters" />
       <module name="hot-off-press" options="-parameters" />
       <module name="hot-off-press-app-gateway" options="-parameters" />
       <module name="hot-off-press-article" options="-parameters" />
@@ -81,6 +84,7 @@
       <module name="hot-off-press-utils" options="-parameters" />
       <module name="hot-off-press-wemedia" options="-parameters" />
       <module name="hot-off-press-wemedia-gateway" options="-parameters" />
+      <module name="mongo-demo" options="-parameters" />
     </option>
   </component>
 </project>
