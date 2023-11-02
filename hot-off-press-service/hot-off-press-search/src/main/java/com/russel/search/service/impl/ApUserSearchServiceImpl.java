@@ -30,7 +30,7 @@ public class ApUserSearchServiceImpl implements ApUserSearchService {
      * @param userId
      */
     @Override
-    //@Async
+    @Async
     public void insert(String keyword, Integer userId) {
         //1.查询当前用户的搜索关键词
         Query query = Query.query(Criteria.where("userId").is(userId).and("keyword").is(keyword));
