@@ -1,7 +1,12 @@
 package com.russel.search.service.impl;
 
+import com.russel.model.common.dtos.ResponseResult;
+import com.russel.model.common.enums.AppHttpCodeEnum;
+import com.russel.model.user.pojos.ApUser;
+import com.russel.search.dtos.HistorySearchDto;
 import com.russel.search.pojos.ApUserSearch;
 import com.russel.search.service.ApUserSearchService;
+import com.russel.utils.thread.AppThreadLocalUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -59,5 +64,42 @@ public class ApUserSearchServiceImpl implements ApUserSearchService {
             ApUserSearch lastUserSearch = apUserSearchList.get(apUserSearchList.size() - 1);
             mongoTemplate.findAndReplace(Query.query(Criteria.where("id").is(lastUserSearch.getId())),apUserSearch);
         }
+    }
+
+    @Override
+    public ResponseResult findUserSearch() {
+        //获取当前用户
+        ApUser user = AppThreadLocalUtil.getUser();
+        if(user == null){
+            return ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN);
+        }
+
+        //根据用户查询数据，按照时间倒序
+        List<ApUserSearch> apUserSearches = mongoTemplate.find(Query.query(Criteria.where("userId").is(user.getId())).with(Sort.by(Sort.Direction.DESC, "createdTime")), ApUserSearch.class);
+        return ResponseResult.okResult(apUserSearches);
+    }
+
+    /**
+     * 删除历史记录
+     *
+     * @param dto
+     * @return
+     */
+    @Override
+    public ResponseResult delUserSearch(HistorySearchDto dto) {
+        //1.检查参数
+        if(dto.getId() == null){
+            return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
+        }
+
+        //2.判断是否登录
+        ApUser user = AppThreadLocalUtil.getUser();
+        if(user == null){
+            return ResponseResult.errorResult(AppHttpCodeEnum.NEED_LOGIN);
+        }
+
+        //3.删除
+        mongoTemplate.remove(Query.query(Criteria.where("userId").is(user.getId()).and("id").is(dto.getId())),ApUserSearch.class);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 }
