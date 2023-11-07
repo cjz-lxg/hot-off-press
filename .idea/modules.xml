@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-test/es-init/es-init.iml" filepath="$PROJECT_DIR$/hot-off-press-test/es-init/es-init.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-admin/hot-off-press-admin.iml" filepath="$PROJECT_DIR$/hot-off-press-service/hot-off-press-admin/hot-off-press-admin.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-gateway/hot-off-press-app-gateway/hot-off-press-app-gateway.iml" filepath="$PROJECT_DIR$/hot-off-press-gateway/hot-off-press-app-gateway/hot-off-press-app-gateway.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-common/hot-off-press-common.iml" filepath="$PROJECT_DIR$/hot-off-press-common/hot-off-press-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-feign-api/hot-off-press-feign-api.iml" filepath="$PROJECT_DIR$/hot-off-press-feign-api/hot-off-press-feign-api.iml" />
@@ -12,6 +13,7 @@
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-user/hot-off-press-user.iml" filepath="$PROJECT_DIR$/hot-off-press-service/hot-off-press-user/hot-off-press-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-utils/hot-off-press-utils.iml" filepath="$PROJECT_DIR$/hot-off-press-utils/hot-off-press-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/hot-off-press-service/hot-off-press-wemedia/hot-off-press-wemedia.iml" filepath="$PROJECT_DIR$/hot-off-press-service/hot-off-press-wemedia/hot-off-press-wemedia.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hot-off-press-test/mongo-demo/mongo-demo.iml" filepath="$PROJECT_DIR$/hot-off-press-test/mongo-demo/mongo-demo.iml" />
     </modules>
   </component>
 </project>

@@ -19,7 +19,7 @@ public class ResponseResult<T> implements Serializable {
 
     private Integer code;
 
-    private String message;
+    private String errorMessage;
 
     private T data;
 
@@ -34,13 +34,13 @@ public class ResponseResult<T> implements Serializable {
 
     public ResponseResult(Integer code, String msg, T data) {
         this.code = code;
-        this.message = msg;
+        this.errorMessage = msg;
         this.data = data;
     }
 
     public ResponseResult(Integer code, String msg) {
         this.code = code;
-        this.message = msg;
+        this.errorMessage = msg;
     }
 
 
@@ -66,21 +66,21 @@ public class ResponseResult<T> implements Serializable {
         return setAppHttpCodeEnum(enums,enums.getErrorMessage());
     }
 
-    public static ResponseResult errorResult(AppHttpCodeEnum enums, String message){
-        return setAppHttpCodeEnum(enums,message);
+    public static ResponseResult errorResult(AppHttpCodeEnum enums, String errorMessage){
+        return setAppHttpCodeEnum(enums,errorMessage);
     }
 
     public static ResponseResult<?> setAppHttpCodeEnum(AppHttpCodeEnum enums){
         return okResult(enums.getCode(),enums.getErrorMessage());
     }
 
-    private static ResponseResult<?> setAppHttpCodeEnum(AppHttpCodeEnum enums, String message){
-        return okResult(enums.getCode(),message);
+    private static ResponseResult<?> setAppHttpCodeEnum(AppHttpCodeEnum enums, String errorMessage){
+        return okResult(enums.getCode(),errorMessage);
     }
 
     public ResponseResult<?> error(Integer code, String msg) {
         this.code = code;
-        this.message = msg;
+        this.errorMessage = msg;
         return this;
     }
 
@@ -93,7 +93,7 @@ public class ResponseResult<T> implements Serializable {
     public ResponseResult<?> ok(Integer code, T data, String msg) {
         this.code = code;
         this.data = data;
-        this.message = msg;
+        this.errorMessage = msg;
         return this;
     }
 
@@ -107,7 +107,7 @@ public class ResponseResult<T> implements Serializable {
         //前置
         /*AppHttpCodeEnum success = AppHttpCodeEnum.SUCCESS;
         System.out.println(success.getCode());
-        System.out.println(success.getmessage());*/
+        System.out.println(success.geterrorMessage());*/
 
         //查询一个对象
         /*Map<String,Object> map = new HashMap<String,Object>();

@@ -8,16 +8,16 @@
       <LocalIntrospectionTimestamp>2023-11-02.07:53:09</LocalIntrospectionTimestamp>
     </schema>
     <schema id="3" parent="1" name="config"/>
-    <schema id="4" parent="1" name="hot-off-press-history">
+    <schema id="4" parent="1" name="local"/>
+    <schema id="5" parent="1" name="hot-off-press-history">
       <LocalIntrospectionTimestamp>2023-11-06.01:12:00</LocalIntrospectionTimestamp>
     </schema>
-    <schema id="5" parent="1" name="lhot-off-press-history">
+    <schema id="6" parent="1" name="lhot-off-press-history">
       <LocalIntrospectionTimestamp>2023-11-06.01:12:00</LocalIntrospectionTimestamp>
     </schema>
-    <schema id="6" parent="1" name="local"/>
-    <table id="7" parent="4" name="ap_associate_words"/>
-    <table id="8" parent="4" name="ap_user_search"/>
-    <table id="9" parent="5" name="ap_user_search"/>
+    <table id="7" parent="5" name="ap_associate_words"/>
+    <table id="8" parent="5" name="ap_user_search"/>
+    <table id="9" parent="6" name="ap_user_search"/>
     <column id="10" parent="7" name="_id">
       <DasType>ObjectId|12s</DasType>
       <Position>1</Position>

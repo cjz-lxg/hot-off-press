@@ -17,6 +17,7 @@
         <module>hot-off-press-wemedia</module>
         <module>hot-off-press-schedule</module>
         <module>hot-off-press-search</module>
+        <module>hot-off-press-admin</module>
     </modules>
 
     <properties>
