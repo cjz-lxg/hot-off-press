@@ -26,7 +26,7 @@ public class AdUserServiceImpl extends ServiceImpl<AdUserMapper, AdUser> impleme
     @Override
     public ResponseResult login(AdUserDto dto) {
         //1. 判定用户名为空
-        if (StringUtils.isBlank(dto.getName())) {
+        if (dto == null || StringUtils.isBlank(dto.getName())) {
             return ResponseResult.errorResult(AppHttpCodeEnum.PARAM_INVALID);
         }
 

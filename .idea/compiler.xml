@@ -10,6 +10,7 @@
         <module name="hot-off-press-app-gateway" />
         <module name="hot-off-press-mysql" />
         <module name="hot-off-press-utils" />
+        <module name="hot-off-press-admin-gateway" />
         <module name="hot-off-press-article" />
         <module name="hot-off-press-minio" />
         <module name="hot-off-pres-mongoDB" />
@@ -65,6 +66,7 @@
       <module name="hot-off-pres-mongoDB" options="-parameters" />
       <module name="hot-off-press" options="-parameters" />
       <module name="hot-off-press-admin" options="-parameters" />
+      <module name="hot-off-press-admin-gateway" options="-parameters" />
       <module name="hot-off-press-app-gateway" options="-parameters" />
       <module name="hot-off-press-article" options="-parameters" />
       <module name="hot-off-press-common" options="-parameters" />

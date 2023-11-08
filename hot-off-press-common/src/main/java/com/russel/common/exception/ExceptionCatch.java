@@ -17,12 +17,10 @@ public class ExceptionCatch {
      * @param e
      * @return
      */
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler({Exception.class})
     @ResponseBody
     public ResponseResult exception(Exception e){
-        e.printStackTrace();
         log.error("catch exception:{}",e.getMessage());
-
         return ResponseResult.errorResult(AppHttpCodeEnum.SERVER_ERROR);
     }
 

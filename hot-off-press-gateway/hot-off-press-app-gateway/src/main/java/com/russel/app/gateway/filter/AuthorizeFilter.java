@@ -55,7 +55,7 @@ public class AuthorizeFilter implements Ordered, GlobalFilter {
             }).build();
             exchange = exchange.mutate().request(serverHttpRequest).build();
         }catch (Exception e){
-            e.printStackTrace();
+            log.error("token failed :{}", e.getMessage());
             response.setStatusCode(HttpStatus.UNAUTHORIZED);
             return response.setComplete();
         }
